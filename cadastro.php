@@ -17,7 +17,7 @@ include 'conectar.php';
     <form action="cadastrar.php" method="post">
 
         <label for="email"> Email </label>
-        <input type="text" name="email" id="idEmail">
+        <input type="email" name="email" id="idEmail">
 
         <label for="nome"> Nome </label>
         <input type="text" name="nome" id="idNome">
@@ -29,7 +29,7 @@ include 'conectar.php';
         <input type="date" name="nascimento" id="idNascimento">
 
         <label for="senha"> Senha </label>
-        <input type="text" name="senha" id="idSenha">
+        <input type="password" name="senha" id="idSenha">
 
         <input type="submit" value="Cadastrar">
 
