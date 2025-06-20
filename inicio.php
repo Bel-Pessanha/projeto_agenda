@@ -18,25 +18,52 @@ include 'conectar.php';
 $query = "select * from anotacao where criador = " . $_SESSION['id'];
 $resultado = mysqli_query($con, $query);
 
+
 ?>
 
 <body>
-    <?php
-    while ($anotacao = mysqli_fetch_array($resultado)) {
-    ?>
-        <div>
-            <a href="#">
-                <h3>
-                    <label for=""><?php echo $anotacao["titulo"]; ?></label>
-                </h3>
-                
-                <p>
-                    <?php echo $anotacao['texto']; ?>
-                </p>
-        </div>
-        <br>
 
     <?php
+    while ($anotacao = mysqli_fetch_array($resultado)) {
+        $id = $anotacao['id'];
+
+    ?>
+        <div class="wrapper02">
+            <a href="#modal-<?php echo $id; ?>">
+
+                <h3><?php echo $anotacao["titulo"]; ?></h3>
+                <p><?php echo $anotacao['texto']; ?></p>
+
+            </a>
+        </div>
+
+    <div id="modal-<?php echo $id; ?>" class="modal">
+        <div class="modal__conteudo">
+            <h1>ANOTAÇÃO</h1>
+            
+            <p>Teste de formulário em um modal!</p>
+
+            <form action="cadastro_anotacao.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+
+                <label for="titulo">Título</label>
+                <input type="text" name="titulo" value="<?php echo $anotacao["titulo"]; ?>">
+
+                <label for="texto">Texto</label>
+                <textarea name="texto"><?php echo $anotacao["texto"]; ?></textarea>
+
+                <label for="data">Data</label>
+                <input type="date" name="data"value="<?php echo $anotacao["data_informacao"]; ?>">
+
+                <input type="submit" value="Criar">
+
+            </form>
+
+            <a href="#" class="modal__fechar">&times;</a>
+        </div>
+    </div>
+        <?php
     };
     ?>
 
@@ -56,7 +83,7 @@ $resultado = mysqli_query($con, $query);
                 <input type="text" name="titulo" id="idTitulo">
 
                 <label for="texto">Texto</label>
-                <textarea name="texto" id="idTexto"> Insira seu texto aqui</textarea>
+                <textarea name="texto" id="idTexto"></textarea>
 
                 <label for="data">Data</label>
                 <input type="date" name="data" id="idData">
