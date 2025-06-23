@@ -23,11 +23,19 @@ $resultado = mysqli_query($con, $query);
 
 <body>
 
+    <button>
+        <a href="desconectar.php">SAIR</a>
+    </button>
+    
+    <button>
+        <a href="perfil.php">PERFIL</a>
+    </button>
+
     <?php
     while ($anotacao = mysqli_fetch_array($resultado)) {
         $id = $anotacao['id'];
-
     ?>
+
         <div class="wrapper02">
             <a href="#modal-<?php echo $id; ?>">
 
@@ -37,33 +45,38 @@ $resultado = mysqli_query($con, $query);
             </a>
         </div>
 
-    <div id="modal-<?php echo $id; ?>" class="modal">
-        <div class="modal__conteudo">
-            <h1>ANOTAÇÃO</h1>
-            
-            <p>Teste de formulário em um modal!</p>
+        <div id="modal-<?php echo $id; ?>" class="modal">
+            <div class="modal__conteudo">
+                <h1>ANOTAÇÃO</h1>
 
-            <form action="cadastro_anotacao.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <p>Teste de formulário em um modal!</p>
+
+                <form action="atualiza_anotacao.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
 
 
-                <label for="titulo">Título</label>
-                <input type="text" name="titulo" value="<?php echo $anotacao["titulo"]; ?>">
+                    <label for="titulo">Título</label>
+                    <input type="text" name="titulo" value="<?php echo $anotacao["titulo"]; ?>">
 
-                <label for="texto">Texto</label>
-                <textarea name="texto"><?php echo $anotacao["texto"]; ?></textarea>
+                    <label for="texto">Texto</label>
+                    <textarea name="texto"><?php echo $anotacao["texto"]; ?></textarea>
 
-                <label for="data">Data</label>
-                <input type="date" name="data"value="<?php echo $anotacao["data_informacao"]; ?>">
+                    <label for="data">Data</label>
+                    <input type="date" name="data" value="<?php echo $anotacao["data_informacao"]; ?>">
 
-                <input type="submit" value="Criar">
+                    <input type="submit" value="Salvar">
 
-            </form>
+                </form>
 
-            <a href="#" class="modal__fechar">&times;</a>
+                <form action="excluir_anotacao.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="submit" value="Excluir">
+                </form>
+
+                <a href="#" class="modal__fechar">&times;</a>
+            </div>
         </div>
-    </div>
-        <?php
+    <?php
     };
     ?>
 

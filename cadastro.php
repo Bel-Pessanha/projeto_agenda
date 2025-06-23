@@ -17,19 +17,19 @@ include 'conectar.php';
     <form action="cadastrar.php" method="post">
 
         <label for="email"> Email </label>
-        <input type="email" name="email" id="idEmail">
+        <input type="email" name="email" id="idEmail" required>
 
         <label for="nome"> Nome </label>
-        <input type="text" name="nome" id="idNome">
+        <input type="text" name="nome" id="idNome" required>
 
         <label for="sobrenome"> Sobrenome </label>
-        <input type="text" name="sobrenome" id="idSobrenome">
+        <input type="text" name="sobrenome" id="idSobrenome" required>
 
         <label for="nascimento"> Nascimento </label>
-        <input type="date" name="nascimento" id="idNascimento">
+        <input type="date" name="nascimento" id="idNascimento" required>
 
         <label for="senha"> Senha </label>
-        <input type="password" name="senha" id="idSenha">
+        <input type="password" name="senha" id="idSenha" required>
 
         <input type="submit" value="Cadastrar">
 
