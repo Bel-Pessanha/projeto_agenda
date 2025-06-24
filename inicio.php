@@ -14,23 +14,21 @@ include 'conectar.php';
 </head>
 
 <?php
-
 $query = "select * from anotacao where criador = " . $_SESSION['id'];
 $resultado = mysqli_query($con, $query);
-
-
 ?>
 
-<body>
-
+<header>
     <button>
         <a href="desconectar.php">SAIR</a>
     </button>
-    
+
     <button>
         <a href="perfil.php">PERFIL</a>
     </button>
+</header>
 
+<body>
     <?php
     while ($anotacao = mysqli_fetch_array($resultado)) {
         $id = $anotacao['id'];
