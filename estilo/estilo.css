@@ -1,21 +1,28 @@
 body {
     font-family: sans-serif;
+     height: 97vh;
+
+
 }
+
 
 .wrapper {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
    
 
 }
+
 
 .wrapper02 {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+   
     
 
 }
@@ -24,7 +31,7 @@ body {
     display: inline-block;
     text-decoration: none;
     padding: 15px;
-    background-color: white;
+    background-color: rgb(171, 163, 163);
     border-radius: 3px;
     text-transform: uppercase;
     color: rgb(74, 73, 73);

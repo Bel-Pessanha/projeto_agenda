@@ -29,11 +29,41 @@ $resultado = mysqli_query($con, $query);
 </header>
 
 <body>
+
+    <div class="wrapper">
+        <a href="#demo-modal">Abrir Modal</a>
+    </div>
+
+    <div id="demo-modal" class="modal">
+
+        <div class="modal__conteudo">
+            <h1>ANOTAÇÃO</h1>
+            <p>Teste de formulário em um modal!</p>
+
+            <form action="cadastro_anotacao.php" method="post">
+
+                <label for="titulo">Titulo</label>
+                <input type="text" name="titulo" id="idTitulo">
+
+                <label for="texto">Texto</label>
+                <textarea name="texto" id="idTexto"></textarea>
+
+                <label for="data">Data</label>
+                <input type="date" name="data" id="idData">
+
+                <input type="submit" value="Criar">
+
+            </form>
+
+            <a href="#" class="modal__fechar">&times;</a>
+        </div>
+    </div>
+         <div class="teste">
     <?php
     while ($anotacao = mysqli_fetch_array($resultado)) {
         $id = $anotacao['id'];
     ?>
-
+       
         <div class="wrapper02">
             <a href="#modal-<?php echo $id; ?>">
 
@@ -78,33 +108,6 @@ $resultado = mysqli_query($con, $query);
     };
     ?>
 
-    <div class="wrapper">
-        <a href="#demo-modal">Abrir Modal</a>
-    </div>
-
-    <div id="demo-modal" class="modal">
-
-        <div class="modal__conteudo">
-            <h1>ANOTAÇÃO</h1>
-            <p>Teste de formulário em um modal!</p>
-
-            <form action="cadastro_anotacao.php" method="post">
-
-                <label for="titulo">Titulo</label>
-                <input type="text" name="titulo" id="idTitulo">
-
-                <label for="texto">Texto</label>
-                <textarea name="texto" id="idTexto"></textarea>
-
-                <label for="data">Data</label>
-                <input type="date" name="data" id="idData">
-
-                <input type="submit" value="Criar">
-
-            </form>
-
-            <a href="#" class="modal__fechar">&times;</a>
-        </div>
     </div>
 
 </body>
