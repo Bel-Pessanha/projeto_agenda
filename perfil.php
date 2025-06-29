@@ -1,7 +1,5 @@
 <?php
-
 include 'conectar.php';
-
 ?>
 
 <html>
@@ -9,14 +7,18 @@ include 'conectar.php';
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link href="estilo.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="estilo/estilo02.css">
 </head>
+
+
 <?php
 $query = "select * from usuario where id = " . $_SESSION['id'];
 $resultado = mysqli_query($con, $query);
 ?>
 
-<body>
+<body id="body01">
+
+<header>
 
     <button>
         <a href="desconectar.php">SAIR</a>
@@ -26,22 +28,22 @@ $resultado = mysqli_query($con, $query);
         <a href="inicio.php">INICIO</a>
     </button>
 
+</header>
+
     <?php
     while ($anotacao = mysqli_fetch_array($resultado)) {
-
     ?>
-
-
+    <div class="wrapper03">
         <form action="atualiza_perfil.php" method="post">
 
             <label for="email"> Email </label>
             <input type="email" name="email" value="<?php echo $anotacao["email"]; ?>" disabled>
 
             <label for="nome"> Nome </label>
-            <input type="text" name="nome" value="<?php echo $anotacao["nome"]; ?>" required >
+            <input type="text" name="nome" value="<?php echo $anotacao["nome"]; ?>" required>
 
             <label for="sobrenome"> Sobrenome </label>
-            <input type="text" name="sobrenome" value="<?php echo $anotacao["sobrenome"]; ?>" required >
+            <input type="text" name="sobrenome" value="<?php echo $anotacao["sobrenome"]; ?>" required>
 
             <label for="nascimento"> Nascimento </label>
             <input type="date" name="nascimento" value="<?php echo $anotacao["datanasc"]; ?>" required>
@@ -55,7 +57,7 @@ $resultado = mysqli_query($con, $query);
             <input type="submit" value="Salvar">
 
         </form>
-
+    </div>    
     <?php
     };
     ?>

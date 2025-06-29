@@ -3,12 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-
-    <link href="estilo.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="estilo/estilo02.css">
 
 </head>
 
-<body>
+<body id="body02">
     <form action="login.php" method="post">
 
         <label for="email">Email</label>
