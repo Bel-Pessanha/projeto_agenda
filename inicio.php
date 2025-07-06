@@ -22,18 +22,22 @@ $resultado = mysqli_query($con, $query);
 
     <header>
         <button>
-            <a href="desconectar.php">SAIR</a>
+            <a href="convites.php">CONVITES</a>
         </button>
-
         <button>
             <a href="perfil.php">PERFIL</a>
         </button>
+        <button>
+            <a href="desconectar.php">SAIR</a>
+        </button>
+
+
     </header>
 
     <a href="#demo-modal">
         <div class="wrapper">
 
-            <h1>Abrir Modal</h1>
+            <h1>Criar Anotação</h1>
 
         </div>
     </a>
@@ -72,7 +76,7 @@ $resultado = mysqli_query($con, $query);
                 <a href="#modal-<?php echo $id; ?>">
 
                     <h3><?php echo $anotacao["titulo"]; ?></h3>
-                    <p><?php echo $anotacao['texto']; ?></p>
+                    <p id="nota"><?php echo $anotacao['texto']; ?></p>
 
                 </a>
             </div>

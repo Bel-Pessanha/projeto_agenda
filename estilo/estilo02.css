@@ -1,13 +1,27 @@
 /* Reset básico */
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
+  
 }
 
 a {
   text-decoration: none;
+}
+
+#nota, h3 {
+  width: 570px; /* Define a largura máxima do elemento */
+  overflow: hidden; /* Oculta o conteúdo que ultrapassa a largura */
+  white-space: nowrap; /* Impede quebras de linha dentro da palavra */
+  word-wrap: break-word; /* Quebra palavras longas */
+    text-overflow: ellipsis; /* Adiciona reticências no final */
+
+}
+
+#perfil {
+  color: black;
+  text-align: center;
 }
 
 /* Cores e layout base */
@@ -53,10 +67,8 @@ header button a {
 }
 
 .wrapper {
- background-color: #006666;
+  background-color: #008080;
   color: white;
-  padding: 5px;
-  margin-top: 15px;
   margin: 15px auto;
   border: none;
   border-radius: 10px;
@@ -68,8 +80,8 @@ header button a {
 }
 
 .wrapper :hover {
-    background: #008080;
- 
+  background: #006666;
+  border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 
@@ -95,10 +107,7 @@ header button a {
   margin: 15px auto;
   border-radius: 10px;
   max-width: 600px;
-
   margin-top: 20px;
-
-
 
 }
 

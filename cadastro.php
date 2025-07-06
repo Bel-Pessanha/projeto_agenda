@@ -9,10 +9,18 @@ include 'conectar.php';
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link href="estilo.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="estilo/estilo02.css">
 </head>
 
-<body>
+<body id="body01">
+
+    <header>
+
+        <button>
+            <a href="index.php">VOLTAR</a>
+        </button>
+
+    </header>
 
     <form action="cadastrar.php" method="post">
 
