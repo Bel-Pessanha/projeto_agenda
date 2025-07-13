@@ -59,6 +59,9 @@ $resultado = mysqli_query($con, $query);
                 <label for="data">Data</label>
                 <input type="date" name="data" id="idData">
 
+                <label for="compa"> E-mail para Compartilhar</label>
+                <input type="email" name="compa" id="idcompa">
+
                 <input type="submit" value="Criar">
 
             </form>
@@ -99,6 +102,9 @@ $resultado = mysqli_query($con, $query);
 
                         <label for="data">Data</label>
                         <input type="date" name="data" value="<?php echo $anotacao["data_informacao"]; ?>">
+
+                         <label for="compa"> E-mail para Compartilhar</label>
+                        <input type="email" name="compa" value="<?php echo $anotacao["compartilha"]; ?>">
 
                         <input type="submit" value="Salvar">
 
