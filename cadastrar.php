@@ -26,7 +26,7 @@
      $query = "insert into  usuario values (default,'$email','$senha','$nome','$sobrenome','$nascimento');";
      mysqli_query($con, $query);
 
-     header('location:index.php');
+     header('location:index.html');
     }
   
   }

@@ -15,7 +15,7 @@ if ($logarray == null) {
     $email = null;
     $senha = null;
 
-    header('location:index.php');
+    header('location:index.html');
 } else {
 
     $_SESSION['id'] = $array['id'];
