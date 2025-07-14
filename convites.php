@@ -10,12 +10,6 @@ include 'conectar.php';
     <link rel="stylesheet" href="estilo/estilo02.css">
 </head>
 
-
-<?php
-$query = "select * from usuario where id = " . $_SESSION['id'];
-$resultado = mysqli_query($con, $query);
-?>
-
 <body id="body01">
 
     <header>
@@ -28,19 +22,58 @@ $resultado = mysqli_query($con, $query);
     </header>
 
     <?php
-    while ($anotacao = mysqli_fetch_array($resultado)) {
+    /* verifica todos os vinculos como id deste usuario  */
+    $query = "select * from vinculo where compa_anot = " . $_SESSION['id'];
+    $resultado = mysqli_query($con, $query);
+
+    /* enquanto tiver vinculos ele pega a anotação conforme o id de anotação no vinculo */
+    while ($anotacoes = mysqli_fetch_array($resultado)) {
+        $query02 = "SELECT * FROM anotacao WHERE id = " . $anotacoes['anota_vinculo'];
+        $resultado02 = mysqli_query($con, $query02);
+
+        while ($anotacao = mysqli_fetch_array($resultado02)) {
+            $id = $anotacao['id'];
     ?>
-        <div class="wrapper03">
 
-            <h1 id="perfil">CONVITES PARA O USUÁRIO</h1>
+            <div class="wrapper02">
+                <a href="#modal-<?php echo $id; ?>">
 
-            <form action="#" method="post">
+                    <h3><?php echo $anotacao["titulo"]; ?></h3>
+                    <p id="nota"><?php echo $anotacao['texto']; ?></p>
+
+                </a>
+            </div>
+
+            <div id="modal-<?php echo $id; ?>" class="modal">
+                <div class="modal__conteudo">
+                    <h1>ANOTAÇÃO</h1>
+
+                    <p>Teste de formulário em um modal!</p>
+
+                    <form action="atualiza_anotacao.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
 
 
-            </form>
+                        <label for="titulo">Título</label>
+                        <input type="text" name="titulo" value="<?php echo $anotacao["titulo"]; ?>">
 
-        </div>
+                        <label for="texto">Texto</label>
+                        <textarea name="texto"><?php echo $anotacao["texto"]; ?></textarea>
+
+                        <label for="data">Data</label>
+                        <input type="date" name="data" value="<?php echo $anotacao["data_informacao"]; ?>">
+
+                        <label for="compa"> E-mail para Compartilhar</label>
+                        <input type="email" name="compa" value="<?php echo $anotacao["compartilha"]; ?>">
+
+                    </form>
+
+
+                    <a href="#" class="modal__fechar">&times;</a>
+                </div>
+            </div>
     <?php
+        };
     };
     ?>
 
