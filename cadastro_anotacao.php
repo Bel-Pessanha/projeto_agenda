@@ -5,10 +5,12 @@ include 'conectar.php';
 $titulo = $_POST['titulo'];
 $texto = $_POST['texto'];
 $data = $_POST['data'];
+$hora = $_POST['hora'];
+$repetir = $_POST['repetir'];
 $compa = $_POST['compa'];
+$natureza = $_POST['natureza'];
 
-
-$query = "insert into anotacao values (default,'$titulo','$texto','$data','$compa', '" . $_SESSION['id'] . "' );";
+$query = "insert into anotacao values (default,'$titulo','$texto','$data','$hora','$repetir','$compa','$natureza', '" . $_SESSION['id'] . "' );";
 mysqli_query($con, $query);
 
 if($compa != null){

@@ -21,6 +21,12 @@ include 'conectar.php';
         </button>
     </header>
 
+    <div class="wrapper">
+
+        <h1>Lembretes Compartilhados</h1>
+
+    </div>
+
     <?php
     /* verifica todos os vinculos como id deste usuario  */
     $query = "select * from vinculo where compa_anot = " . $_SESSION['id'];
@@ -63,8 +69,29 @@ include 'conectar.php';
                         <label for="data">Data</label>
                         <input type="date" name="data" value="<?php echo $anotacao["data_informacao"]; ?>">
 
+                        <label for="hora">Horário</label>
+                        <input type="time" name="hora" id="idHora" value="<?php echo $anotacao['hora'] ?>">
+
+                        <label for="repetir">Repetir</label>
+                        <select name="repetir" id="idRepetir">
+                            <option value="<?php echo $anotacao['repetir'] ?>"><?php echo $anotacao['repetir'] ?></option>
+                            <option value="nao">Não</option>
+                            <option value="dia">Dia</option>
+                            <option value="semana">Semana</option>
+                            <option value="mes">Mês</option>
+                            <option value="ano">Ano</option>
+                        </select>
+
                         <label for="compa"> E-mail para Compartilhar</label>
                         <input type="email" name="compa" value="<?php echo $anotacao["compartilha"]; ?>">
+
+                        <label for="natureza">Natureza</label>
+                        <select name="natureza" id="idNatureza">
+                            <option value="<?php echo $anotacao['natureza'] ?>"><?php echo $anotacao['natureza'] ?></option>
+                            <option value="visualizar">Visualizar</option>
+                            <option value="editar">Editar</option>
+
+                        </select>
 
                     </form>
 

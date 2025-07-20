@@ -21,24 +21,27 @@ id int primary key auto_increment,
 titulo varchar(255),
 texto varchar(255) not null,
 data_informacao date,
+hora time,
+repetir enum ('nao','dia','semana','mes','ano'),
 compartilha varchar(255),
+natureza enum('editar','visualizar'),
 criador int references usuario(id)
 );
 
 ALTER TABLE anotacao ADD compartilha varchar(255);
+ALTER TABLE anotacao ADD repetir enum ('dia','semana','mes','ano');
 
 insert into anotacao values (default,'teste','testando este sql','2025-06-24','2');
 
 SELECT id FROM anotacao where criador ='2' ORDER BY id DESC LIMIT 1 ;
 select * from anotacao where criador = '2' and id = '6';
 select * from anotacao;
-select * from usuario where email ='biel@biel';
 
 UPDATE anotacao SET titulo = 'teste', texto = 'teste', data_informacao = '2025-06-29' WHERE id = '3';
 
 DELETE FROM anotacao WHERE id = '2' AND criador = '4';
 
-drop table vinculo;
+drop table anotacao;
 
 
 create table vinculo(
@@ -47,5 +50,9 @@ criador_anot int,
 compa_anot int,
 anota_vinculo int
 );
+
+select * from anotacao;
 select * from vinculo;
 insert into vinculo values (default,'2','4','3');
+
+select * from vinculo where compa_anot = '2';
